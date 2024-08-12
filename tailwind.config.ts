@@ -1,19 +1,24 @@
 import type { Config } from 'tailwindcss'
-import plugin from 'tailwindcss/plugin'
 import { black, transparent, white } from 'tailwindcss/colors'
+import plugin from 'tailwindcss/plugin'
 
 const config: Config = {
 	content: [
 		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/features/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/widgets/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/entities/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/shared/**/*.{js,ts,jsx,tsx,mdx}',
 		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
+		'./app/**/*.{js,ts,jsx,tsx,mdx}',
 	],
 	theme: {
 		colors: {
 			primary: {
 				DEFAULT: '#E30B13',
-				700: '#ff0009',
+				hover: '#ff0009',
 			},
+
 			black,
 			white,
 			transparent,
@@ -71,14 +76,17 @@ const config: Config = {
 		},
 	},
 	plugins: [
+		require('@tailwindcss/forms'),
+		require('@tailwindcss/aspect-ratio'),
 		plugin(({ addComponents, addUtilities, theme }) => {
 			addComponents({
 				'.btn-primary': {
-					backgroundColor: theme('colors.primary'),
+					backgroundColor: theme('colors.primary.DEFAULT'),
 					color: theme('colors.white'),
+					borderRadius: '0.65rem',
 					transition: 'background-color .3s ease-in-out',
 					'&:hover': {
-						backgroundColor: theme('colors.primary.700'),
+						backgroundColor: theme('colors.primary.hover'),
 					},
 				},
 				'.text-link': {

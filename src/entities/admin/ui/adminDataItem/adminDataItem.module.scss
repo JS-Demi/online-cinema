@@ -1,0 +1,6 @@
+.actions {
+	@apply flex items-center gap-4;
+	> button {
+		@apply outline-border-none bg-transparent text-xl text-primary opacity-80 transition-opacity hover:opacity-100;
+	}
+}

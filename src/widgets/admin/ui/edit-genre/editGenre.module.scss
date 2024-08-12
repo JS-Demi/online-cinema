@@ -1,0 +1,6 @@
+.form {
+	@apply flex flex-col gap-8;
+	> button {
+		@apply w-1/5;
+	}
+}

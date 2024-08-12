@@ -9,7 +9,7 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: 'Outfit', sans-serif;
-	@apply bg-gray-900;
+	@apply bg-gray-900 text-white;
 }
 
 a {
@@ -28,6 +28,20 @@ a {
 input[type='file'],
 input[type='file'] ::-webkit-file-upload-button {
 	@apply cursor-pointer focus:outline-none;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	-webkit-text-fill-color: #66676e;
+	-webkit-box-shadow: 0 0 0px 1000px #101215 inset;
+	transition: background-color 5000s ease-in-out 0s;
+	@apply text-base text-gray-600;
 }
 
 input:focus {

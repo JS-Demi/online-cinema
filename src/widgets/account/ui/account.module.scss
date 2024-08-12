@@ -1,0 +1,35 @@
+.account {
+	@apply mt-32 flex justify-center;
+	> form {
+		@apply mx-10 w-1/2 air-block bg-opacity-80 p-7 text-center;
+		> button {
+			@apply mt-12 shadow-lg py-2.5 px-10 text-center mx-auto;
+		}
+	}
+	.footer {
+		@apply mt-12;
+		> span {
+			@apply text-white text-opacity-80;
+		}
+		> a {
+			@apply text-primary hover:underline;
+			&::after {
+				content: '\2192';
+				padding-top: 0.3em;
+				top: 0;
+				color: inherit;
+				display: inline-block;
+				font-style: normal;
+				font-weight: inherit;
+				font-size: inherit;
+				line-height: 1;
+				text-decoration: underline;
+				position: relative;
+				z-index: 1;
+				transform: rotate(-45deg);
+				alt: '';
+				text-decoration: none;
+			}
+		}
+	}
+}

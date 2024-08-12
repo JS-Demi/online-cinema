@@ -7,6 +7,15 @@ const nextConfig = {
 		APP_ENV: process.env.REACT_APP_ENV,
 		APP_SERVER_URL: process.env.REACT_APP_SERVER_URL,
 	},
+	async redirects() {
+		return [
+			{
+				source: '/api',
+				destination: '/',
+				permanent: true,
+			},
+		]
+	},
 	async rewrites() {
 		return [
 			{

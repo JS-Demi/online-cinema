@@ -1,0 +1,22 @@
+.ul {
+	@apply flex flex-col gap-2;
+	> li {
+		@apply flex justify-between items-center animate-fade bg-gray-700 px-5 bg-opacity-20 rounded-lg transition-colors hover:bg-opacity-50;
+		> div {
+			@apply text-white text-opacity-80 py-3;
+			width: 24%;
+			&:last-child {
+				@apply text-end justify-end;
+			}
+		}
+	}
+	.headerItem {
+		@apply bg-primary bg-opacity-20 shadow-lg hover:bg-opacity-20;
+		> span {
+			@apply text-opacity-90 font-semibold py-2.5;
+		}
+	}
+	.notFound {
+		@apply text-white text-lg text-opacity-60 text-center py-3;
+	}
+}

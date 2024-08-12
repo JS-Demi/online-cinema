@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
+
 import { Home } from 'pages/home'
 
+import { titleMerge } from 'shared/config'
+
 export const metadata: Metadata = {
-	title: 'home',
-	description: 'home page',
+	title: titleMerge('Home'),
 }
 
 export default function Page() {
