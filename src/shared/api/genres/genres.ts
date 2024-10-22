@@ -17,3 +17,7 @@ export const updateGenre = (id: string, data: IGenreEdit): Promise<IGenre> => {
 export const removeGenre = (id: string): Promise<string> => {
 	return tokenApi.delete(`${BASE_URL}/${id}`)
 }
+
+export const createGenre = (): Promise<string> => {
+	return tokenApi.post(BASE_URL, {})
+}

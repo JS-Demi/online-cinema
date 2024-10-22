@@ -2,7 +2,6 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner'
 
 import { removeGenre } from 'shared/api/genres'
-import { removeUser } from 'shared/api/user'
 import { toastError } from 'shared/lib/handleError'
 
 export const useRemoveGenreMutation = () => {

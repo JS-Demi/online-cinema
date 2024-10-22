@@ -1,8 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 
 import { getGenres } from 'shared/api/genres'
-import { getUsers } from 'shared/api/user'
-import { convertMongoDate, getAdminUrl } from 'shared/lib/utils'
+import { getAdminUrl } from 'shared/lib/utils'
 import { IAdminData } from 'shared/types'
 
 export const useGenresQuery = (debouncedSearch: string) => {

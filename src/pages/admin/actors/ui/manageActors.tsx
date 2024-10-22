@@ -8,6 +8,7 @@ import { useDebounce } from 'shared/lib/debounce'
 import { Heading } from 'shared/ui/heading'
 
 import { useActorsQuery } from '../api/useActorsQuery'
+import { useCreateActor } from '../api/useCreateActor'
 import { useRemoveActorMutation } from '../api/useRemoveActorMutation'
 
 interface IManageActors {}
@@ -20,6 +21,7 @@ export const ManageActors: FC<IManageActors> = () => {
 	const debouncedSearch = useDebounce(searchTerm, 500)
 	const { isLoading, data: actors, isSuccess } = useActorsQuery(debouncedSearch)
 	const { mutate: removeUser } = useRemoveActorMutation()
+	const { mutate: createUser } = useCreateActor()
 
 	const removeHandler = (id: string) => {
 		removeUser(id)
@@ -27,7 +29,11 @@ export const ManageActors: FC<IManageActors> = () => {
 	return (
 		<div className="flex flex-col gap-10">
 			<Heading title="Actors" />
-			<AdminDataHeader searchTerm={searchTerm} handleSearch={handleSearch} />
+			<AdminDataHeader
+				searchTerm={searchTerm}
+				handleSearch={handleSearch}
+				handleClick={createUser}
+			/>
 			<AdminDataList
 				titles={['Name', 'Count movies']}
 				itemName="Actors"

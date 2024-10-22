@@ -1,2 +1,8 @@
-export { getMovies, getMostPopularMovies, removeMovie } from './movies'
-export type { IMovie, IParameters } from './types'
+export {
+	getMovies,
+	getMostPopularMovies,
+	removeMovie,
+	createMovie,
+	getMovieById,
+} from './movies'
+export type { IMovie, IParameters, IMovieById } from './types'

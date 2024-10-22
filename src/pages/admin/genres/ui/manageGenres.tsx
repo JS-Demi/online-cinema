@@ -7,6 +7,7 @@ import { AdminDataHeader, AdminDataList } from 'widgets/admin'
 import { useDebounce } from 'shared/lib/debounce'
 import { Heading } from 'shared/ui/heading'
 
+import { useCreateGenreMutation } from '../api/useCreateGenreMutation'
 import { useGenresQuery } from '../api/useGenresQuery'
 import { useRemoveGenreMutation } from '../api/useRemoveGenreMutation'
 
@@ -19,15 +20,20 @@ export const ManageGenres: FC<IManageGenres> = () => {
 	}
 	const debouncedSearch = useDebounce(searchTerm, 500)
 	const { isLoading, data: genres, isSuccess } = useGenresQuery(debouncedSearch)
-	const { mutate: removeUser } = useRemoveGenreMutation()
+	const { mutate: removeGenre } = useRemoveGenreMutation()
+	const { mutate: createGenre } = useCreateGenreMutation()
 
 	const removeHandler = (id: string) => {
-		removeUser(id)
+		removeGenre(id)
 	}
 	return (
 		<div className="flex flex-col gap-10">
 			<Heading title="Genres" />
-			<AdminDataHeader searchTerm={searchTerm} handleSearch={handleSearch} />
+			<AdminDataHeader
+				searchTerm={searchTerm}
+				handleSearch={handleSearch}
+				handleClick={createGenre}
+			/>
 			<AdminDataList
 				titles={['Name', 'Slug']}
 				itemName="Genres"

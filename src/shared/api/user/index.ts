@@ -1,1 +1,7 @@
-export { getCountUsers, getUsers, removeUser } from './user'
+export {
+	getCountUsers,
+	getUsers,
+	removeUser,
+	createUser,
+	getUserById,
+} from './user'

@@ -12,7 +12,14 @@ export const getCountUsers = (): Promise<number> => {
 export const getUsers = (searchTerm?: string): Promise<IUserResponse[]> => {
 	return tokenApi.get(BASE_URL, { params: searchTerm ? { searchTerm } : {} })
 }
+export const getUserById = (id: string): Promise<IUserResponse> => {
+	return tokenApi.get(`${BASE_URL}/${id}`)
+}
 
 export const removeUser = (id: string): Promise<string> => {
 	return tokenApi.delete(`${BASE_URL}/${id}`)
+}
+
+export const createUser = (): Promise<string> => {
+	return tokenApi.post(BASE_URL, {})
 }

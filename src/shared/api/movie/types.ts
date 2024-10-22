@@ -12,6 +12,7 @@ export interface IMovie {
 	poster: string
 	bigPoster: string
 	title: string
+	createdAt: string
 	parameters: IParameters
 	genres: IGenre[]
 	actors: IActor[]
@@ -19,4 +20,12 @@ export interface IMovie {
 	videoUrl: string
 	rating: number
 	slug: string
+	isSendTelegram: boolean
+}
+
+export interface IMovieById extends Omit<IMovie, 'actors' | 'genres'> {
+	actors: string[]
+	genres: string[]
+	updatedAt: string
+	__v: number
 }

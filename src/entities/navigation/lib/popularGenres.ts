@@ -9,7 +9,8 @@ export const popularGenresQueryOptions = queryOptions({
 	queryFn: async () => await getGenres(),
 	select: (data) =>
 		data
-			?.map(
+			.filter((genre) => genre.icon)
+			.map(
 				({ icon, name, slug }) =>
 					({
 						icon: icon,
